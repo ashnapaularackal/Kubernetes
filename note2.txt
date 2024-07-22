@@ -1,0 +1,37 @@
+:  kubectl get all
+   : to list out all the resources available in particular name space
+: kubectl get all - A
+   : to list out all the resources available in all name space
+https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 1   //how many pods you want to create
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+
+ 1.after saving this in vim deployment.yml
+
+2.kubectl apply -f deployment.yml
+3.kubectl get deploy
+4.kubectl get pods
+5.kubectl get rs     (rs is short form for replica set)
+
+ iN both step 3 and 4 we could see the see the data ,so how pod is created .ie: when we apply deployment a replicaconcontroller creats the replicas of pods as much as required.
+So even if we delete that pod it will create automatically as auto scaling

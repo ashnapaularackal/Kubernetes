@@ -1,0 +1,62 @@
+CheatSheat :https://kubernetes.io/docs/reference/kubectl/quick-reference/
+Kubectl : its is the ComandLine to interact with Kuberbenetes
+minikube: is a comand line tool which allow you to create a cluster.
+1. Install Kubectl
+    go to google search :install kubectl : https://kubernetes.io/docs/tasks/tools/
+   from here use as per your platform
+
+check version :Kubectl version
+2. Installation of local Kubernetes cluster
+  we can use minikube,K3S,Kind, microK8s
+3.lets use minikube now
+     To install minikube , again go to browser search for minikube install  ,install from Kubernetes site .
+
+4. minikube start    :this start kubernetes cluster
+
+    ( what happens is .it first creates 1 VM node then a single node Kubernetes cluster)
+5. Kubectl get nodes
+ it already connected to kubertenes clusters and says now one kubernetes cluster is running its reference   minikube node  and it is both control plane and master plane
+
+6.installation of pod
+ again in kubernestes documentation search for pod
+  pod is definition of how to run a container ,its simply YAML files
+
+https://kubernetes.io/docs/concepts/workloads/pods/
+vi pod.yml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
+
+
+/// the equivalent command to docker is 
+      docker run -d nginx:1.14.2 --name nginx -p 80:80
+
+6.kubectl create -f pod.yml   : we could see the pod is created
+or kubectl apply -f pod.yaml
+
+to check : kubectl get pods
+
+// to get entire details use : kubectl get pods -o wide
+7. minikube ssh    : this way we login into kubernetes cluster
+8. then curl to that IP
+  eg :curl 172.17.0.3
+
+9.to delete : kubectl delete pod nginx
+10. kubectl apply -f pod.yaml
+11.for trouble shooting we can use
+   kubectl logs ngix
+  -- kubectl get pods
+--- kubectl describe pod nginx  :it gives everything inside a pod
+
+
+
+
+
