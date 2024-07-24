@@ -1,0 +1,23 @@
+Ingress
+ why we need ingress
+ Earlier they were using loadbalancer with out ingress and faced maintwo issues
+   1. Enterprices level features are missing   : 1.sticky nodes : (ie if a session using one ip then all the request from that user or session has to use same pod)
+                      2:Ratio based request
+                      3. TLS ...
+   2. For each service the load balancer make has to pay to the cloud provider it was so heavy.
+So the INGRESS came to picture
+
+
+First to use ingress resourse we need a ingress controller
+
+ Ingress controller is actually the load balancer we need it can be ngnix or anything,we need to go to theresite and ind how to use there ingress conroller 
+oce we deploy the ingress controller
+
+How to install Ingress controller : search in google Kubernetes ngnix ingress controller for minikube  ( we can use any provide ,not necessary its ngnix)  :It will givesmple stepsto install the container.
+ 
+
+ we can write the ingress resorses according to our requirement for  pod or 2 pod ... path based or anything...
+
+       For inress.yml filetake itfromffcial wesite and change the service that w need o ingres
+ then kubectl apply -f ingress.yml
+ then kubectl get ingress

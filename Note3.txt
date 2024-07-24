@@ -1,0 +1,9 @@
+Services in k8s
+1: Load balancing
+2: expose to world
+3. discovery using labels and selectors
+   Types:
+ 1:Cluster  : Default : only accessable inside the k8s cluster.
+ 2:Node port : make it accessable inside an organization ( if access to the ip of worker nodes)
+ 3: Load Balancer: this allows the access to outside world ,make it publicl( AWS-EKS-ELB-public Ip)
+ 

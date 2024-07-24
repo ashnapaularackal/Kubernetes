@@ -1,0 +1,119 @@
+Kubernetes Interview question
+1.
+What is the difference between Docker and Kubernetes?
+  ans: docker is a container platdorm 
+K8s is a container orchestration platform (using cluster of nodes)
+K8s offer features such as auto scaling and auto healing,clustering and Enterprise level support like load balancing.
+
+2.
+What are the main components of Kubernetes architectuere?
+  ans:
+ Control plane(master) :
+                 Api service : To handling api,talking to resources
+                 scheduler : Scheduling the resources
+                 Controller Manager: For replication controlling
+                 c-cm : in case of using k8s in any cloud provider, 
+                 Etcd : object store,all the resources are stored as objects.
+
+Data plane (worker node): Kubelet : responsible for managing the pod ( the health)
+                          Kube-proxy:networking component of K8s,managing the ip tables
+                          Container Runtime:for the container to run we use container Runtime
+                               (docker shim,container d, crio)
+
+3. 
+What are main difference between docker Swarm and Kubernetes?
+   ans:
+    Docker Swarm  : easy to use  but only suitable for small scale apps
+    K8s: is enterprice levl or mid level organization
+
+4.
+What is the difference between Docker Container and a Kubernetes pod?
+ans:
+
+Container : single node
+pod : is a runtime specification of a container indocker.A pod provides more declarative way of defining using YAML and we can run more than one container ina pod.  
+     use YAML,can create one container or cluster of nodes
+       all the containers in the cluster can communicate each other in same network ,can have same storage.
+5.
+What is a namespace in Kubernetes?
+ans:
+name space is a logical isolation of resources,network policies,rbac(roll back access control) and everything .For eg,there are two projects using same K8s cluster.One can use ns1 and other project can use ns2 with out any overlap and authentication problems.
+   ie,the can share same cluster but each project will have there own dedicated space.
+
+6.
+What is the role of Kube proxy?
+ans:
+Kube proxy works by maintaining a set of network rules on each node in the cluster,which are updated dynamically as services are added or removed .when a client sends a request to a service ,the request  is intercepted by kube -proxy on the node where it was received .Kube - proxy  then looks up the destination end points for the service and routes the request accordingly.
+  Kube -proxy is an essential component  of a  Kubernetes cluster ,as it ensured that service can communicates with each other.
+
+7.
+What are the difference types of services with in Kubernetes?
+ ans:
+  1.Cluster IP Mode
+  2.Node port Mode
+  3.Load balancer Mode
+
+8.
+What is the role of Kubelet?
+ ans:
+ to run the pod
+
+ manages the container that are scheduler to run on the node.It ensures 
+ that the containers are running and healthy and that the resources they need are available.
+
+9.
+Day to Day activities on Kubernetes.
+  : manages Kubernetes cluster og organization
+   : ensure it is healthy 
+  : ....
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
